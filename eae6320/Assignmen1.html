@@ -2,9 +2,54 @@
 <html>
 <body>
 <h1 style="color: #5e9ca0;">Assignment 1</h1>
-<p>By doing this assignment I learned how to Setup projects properly. I have run into multiple problems when I tried to accomplish it and I have some questions after I finished it. Well, the purpose of this assignment is to assemble an application that uses D3D11 and OpengGL for rendering. We need to put the graphic part of the code as a static library with everything else together. We put them together by using reference, a unique feature of visual studio. Which is stored in .vcproj file. Another feature that does similar things is dependencies, which is stored in .sln. I suppose the idea behind either reference and dependencies is that the project would depend on .cpp in other projects to run. Reference is more like a direct invoke on the other .cpp, while dependencies are more like a building ordering things. I have never used these before, what we do back then is to set the build orders of all projects, then configure them using project property. Just like what we do with other third-party library. Which could lead to lots of potential problems. Talking about project property, I learned I could use a property sheet to set them, which is super handy and flexible. However, I can not quite figure out why we need 5 them each to setup our graphic project since the only difference is Opengl for win32 and d3d11 for x64. I installed visual studio 2019 for this class and I have another version (visual studio 17) on my computer also. The solution will open vs 17 by default, which is kind of wired since the solution is targeted at Win SDK 1903 which was not installed on vs17. We are using references to hock up the graphic parts with the rest of the solution. I find out only the &ldquo;Application&rdquo; project need to add graphic as a reference. We used exclusion of .cpp and preprocessor to switch between opengl and d3d11 which is smart. The based rule is that if you can put the difference in .cpp you can use exclusion, which would be more clear and maintainable. I think you can also use this technique even when the difference is in .h file by having the difference in the .h files which include other .h files that have the common interface. You can avoid specifying difference variables by using inheritance. Well, it might not worth the price. We generally believe there will be two potential cache misses for invoking a virtual function. Hence, unreal engine use refection to go around this problem, it also has other advantages. This would be a topic for another time. Anyway, after we smash the graphic part into the solution, we made a new game project based on an existing once. Mostly busy works. Oh, this is where I find out than the reference is stored in the .vcproj files. I guess the most important things to learn here is that each project has a unique GUID for ProjectGuid in .vcproj and another &ldquo;UniqueIdentifier&rdquo; in .filter files. However, Project like &ldquo;BuildExampleAssets&rdquo; does not have one in .filter file. Aren&rsquo;t that wired? We made the Triangle fleshy by adding a new .lua file and a new shader file. I have to say this data-driven thing is pretty handy. And there is a lot we could do from this perspective. I think we are going to learn more about it in the future.</p>
+<p>By doing this assignment we learned how to Setup projects properly. 
+Well, the purpose of this assignment is to assemble an application that uses both D3D11 and OpengGL for rendering. </p>
+<p>We need to put the graphic part of the code as a static library with everything else. 
+We put them together by using reference, a unique feature of visual studio. Which is stored in .vcproj file. 
+Another feature that does similar things is dependencies, which is stored in .sln. 
+I suppose the idea behind either reference and dependencies is that the project would depend on .cpp in other projects to run.
+On the other hand, Reference is more like a direct invoke on the other .cpp, 
+while dependencies are more like a building ordering things. 
+I have never used these before, what we do back then before was to set the build orders of all projects, 
+then configure them using project property. Just like what we do with other third-party library. 
+Which could lead to lots of potential problems.
+</p>
+<p>Talking about project property, I just learned I could use a property sheet to set them, which is super handy and flexible.
+ However, I wonder why do we need 5 property sheets each to setup our graphic project
+ since the only difference is Opengl for win32 and d3d11 for x64.
+ </p>
+ <p>One problem I have is with visual studio. I installed visual studio 2019 for this class and I have another version (visual studio 17) on my computer.
+ The solution will open vs 17 by default, which is kind of wired since the solution is targeted at Win SDK 1903 
+ which was not installed on vs17.
+ </p>
+<p> We are using references to hock up the graphic parts with the rest of the solution. 
+I find out only the Application project need to add graphic as a reference.
+</p>
+<p> Continue on, we used exclusion of .cpp to switch between opengl and d3d11, which is smart compared with the alternative solution that use preprcessors. The exclusion method make solution more maintainable, and the code is also more clear.
+ The based rule to choice between them is that if you can put the difference in .cpp you can use exclusion, which is the prefered method by me. When it comes to differences in .h file, you might need to consider using preprcessors.
+ However, I think you can still use exclusion even when the difference is in .h file by having the .h files which has the difference include .h files that have the common interface. 
+ You can avoid specifying difference variables by using inheritance of interfaces(abstract classs). Well, it might not worth the price, cause Subtype Polymorphism(runtime polymorphism, the one used virtual function) is expensive. 
+ We generally believe there will be two potential cache misses for invoking a virtual function.
+ Hence, unreal engine use reflection(Unreal Property System) to go around this problem, it also has other advantages. Em,this would be a topic for another time. 
+ </p>
+ <p>
+ Anyway, after we smash the graphic part into the solution, we made a new game project based on an existing once.
+ Mostly busy works. This is where I find out than the reference is stored in the .vcproj files. 
+ I guess the most important things to learn here is that each project has a unique GUID for ProjectGuid in .vcproj 
+ and another UniqueIdentifier; in .filter files. There are special cases, Project like BuildExampleAssets 
+ does not have one in .filter file. Aren&rsquo;t that wired? 
+ </p>
+ <p>
+ We made the Triangle fleshy by adding a new .lua file and a new shader file. 
+ I have to say this data-driven thing is pretty useful.
+ And there are a lot we could add to the solution to make it even more data driven. 
+ I think we are going to learn more about it in the future.
+ </p>
 <img src="result.png" alt="Trulli" width="400" height="400">
-<p>I am sorry this is no way a good write-up or a tech block. I got super messed up last weekend and have not started this assignment until very late. I guess I am not going to do the challenge tonight. Sorry again. Well, I am going to do it anyway, since I figured by migrating my old engine code here, and add some animation things, I could get a kind of functional engine. Who won&rsquo;t want a data-driven maintainable engine? </p>
+<p>
+I figured by migrating my old engine code here, and add some animation things, 
+I could get a kind of functional engine. Who won&rsquo;t want a data-driven maintainable engine? 
+</p>
 <h3 style="color: #1e9ca0;">Triangle change Color with time：</h3>
 <a href="FlashyTriangle_win32.zip">FlashyTriangle_win32.zip</a>
 <p></p>
