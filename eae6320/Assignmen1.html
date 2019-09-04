@@ -18,13 +18,6 @@ Which could lead to lots of potential problems.
  However, I wonder why do we need 5 property sheets each to setup our graphic project
  since the only difference is Opengl for win32 and d3d11 for x64.
  </p>
- <p>One problem I have is with visual studio. I installed visual studio 2019 for this class and I have another version (visual studio 17) on my computer.
- The solution will open vs 17 by default, which is kind of wired since the solution is targeted at Win SDK 1903 
- which was not installed on vs17.
- </p>
-<p> We are using references to hock up the graphic parts with the rest of the solution. 
-I find out only the Application project need to add graphic as a reference.
-</p>
 <p> Continue on, we used exclusion of .cpp to switch between opengl and d3d11, which is smart compared with the alternative solution that use preprcessors. The exclusion method make solution more maintainable, and the code is also more clear.
  The based rule to choice between them is that if you can put the difference in .cpp you can use exclusion, which is the prefered method by me. When it comes to differences in .h file, you might need to consider using preprcessors.
  However, I think you can still use exclusion even when the difference is in .h file by having the .h files which has the difference include .h files that have the common interface. 
@@ -45,6 +38,13 @@ I find out only the Application project need to add graphic as a reference.
  And there are a lot we could add to the solution to make it even more data driven. 
  I think we are going to learn more about it in the future.
  </p>
+  <p>I got one wired problem with visual studio. I installed visual studio 2019 for this class and I have another version (visual studio 17) on my computer.
+ The solution will open vs 17 by default, which is kind of wired since the solution is targeted at Win SDK 1903 
+ which was not installed on vs17.
+ </p>
+<p> We are using references to hock up the graphic parts with the rest of the solution. 
+I find out only the Application project need to add graphic as a reference.
+</p>
 <img src="result.png" alt="Trulli" width="400" height="400">
 <p>
 I figured by migrating my old engine code here, and add some animation things, 
