@@ -1,0 +1,30 @@
+
+<!-- saved from url=(0059)file:///C:/Users/HP/Desktop/Pictures%20Temp/Assingmen2.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head><body><h1 style="text-align: left;">Assignment3</h1>
+<h3>In this assignment, we extract an interface for graphics.&nbsp;</h3>
+<h3>Right now all the data were located in the graphics project in graphics.CPP file&nbsp;</h3>
+<h3>We already separated the object which contains the vertex information and effect which contains the shaders. There are codes that belong to neither of them hence I created a class View which contain the rest codes, such as initialized background-color, manage the context, etc. Currently, all effects, objects, and views are static variables located in graphics.CPP.</h3>
+<h3>I changed the interface on the object and effect to initialize them by data, and I add migrated other platform-dependent codes to View class and add an interface to initialize the clear color.</h3>
+<p>&nbsp;</p>
+<h3>Application&nbsp;</h3>
+<p><img src="A3P1.png" alt="Trulli" width="800" height="800"></p>
+<p><strong>Clear backbuffer color</strong></p>
+<p>&nbsp;</p>
+<p><img src="A3P2.png" alt="1" width="800" height="100"></p>
+<p><strong>application with red backgroud</strong></p>
+<p>&nbsp;</p>
+<p><img src="A3P3.png" alt="2" width="800" height="800"></p>
+<h3>The User needs to provide a vertex data array, an index data array and their size to initialized an object. However, On both platform, only the size of the index array is needed to store. The data takes 24 bytes on&nbsp; directX(x64) and 20 bytes on OpenGl(win32)</h3>
+<p>&nbsp;</p>
+<p><strong>Code Initalize Effect</strong></p>
+<p>&nbsp;</p>
+<p><img src="A3P4.png" alt="3" width="800" height="200"></p>
+<p><strong>Code Initalize Object</strong></p>
+<h3>The User needs to provide addresses to the vertex shader and fragment shader to initialize an effect. On both platform, none of the addresses are stored. The data takes 24 bytes on&nbsp; directX(x64) and 16 bytes on OpenGl(win32)</h3>
+<p>&nbsp;</p>
+<p><img src="A3P5.png" alt="4" width="800" height="600"></p>
+<p>&nbsp;</p>
+<a href="Combined_win32.zip">RedBackGround_win32.zip</a>
+<p></p>
+<a href="Combined_x64.zip">RedBackGround_x64</a>
+</body>
