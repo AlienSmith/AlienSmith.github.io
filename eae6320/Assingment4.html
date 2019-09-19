@@ -1,0 +1,37 @@
+
+<!-- saved from url=(0059)file:///C:/Users/HP/Desktop/Pictures%20Temp/Assingmen2.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head><body><h1 style="text-align: left;">Assignment4</h1>
+<p>&nbsp;</p>
+<h3>BlueBackGround with white square</h3>
+<p><img src="A4P1.png" alt="Trulli" width="800" height="800"></p>
+<p><strong>BlueBackGround with white square and white triangle</strong></p>
+<p>&nbsp;</p>
+<p><img src="A4P2.png" alt="1" width="800" height="800"></p>
+<p><strong>BlueBackGround with green square and white triangle</strong></p>
+<p>&nbsp;</p>
+<p><img src="A4P3.png" alt="2" width="800" height="800"></p>
+<h3>The User needs to provide data to initialize effects and geometry.</h3>
+<p>&nbsp;</p>
+<p><strong>Code Initalize Effect</strong></p>
+<p>&nbsp;</p>
+<p><img src="A4P5.png" alt="3" width="800" height="600"></p>
+<h3>Then the user could submit those infomation to graphics to draw</h3>
+<p><strong>Submit data based on conditions</strong></p>
+<p>&nbsp;</p>
+<p><img src="A4P4.png" alt="4" width="800" height="300"></p>
+<h3>Here is the struct in the graphics system that specifies datas needed for render a frame, It has size of 232 on x64 system and 186 on win32, Cause pointer takes 4 bytes on win32 and 8 bytes on x64. We used a two layers buffer system, which means we 
+will have an extra data needed for render a frame struct during runtime. Hence, the total memeory used for graphics will be 464 bytes for x64, and 372 bytes for win32. </h3>
+<p>&nbsp;</p>
+<p><img src="A4P6.png" alt="4" width="800" height="300"></p>
+<p>&nbsp;</p>
+<h3>Finally, the object takes 20 on win32 and 32 on x64, the effect takes 20 on win32 and 16 on x64,which is wired cause it has size of </h3>
+<h2>Random thoughts</h2>
+<h3>The idea behind having different projects is to add constraints to us and make each part of the engine independent from each other. Such as Application and graphics. Theoretically, the only thing application project should know is the public interfaces of the graphics project, which is currently located in graphics.h. However, later we need to add some struct to transfer information from Application to Graphics. Such As the "sDataRequiredToInitializeOjbect" struct, which I used to transfer information about the vertex.</h3>
+<h3>The problem would be where should we define these structs. You could define it where it is used. Mine "sDataRequiredToInitializeOjbect" is currently defined in Object class which uses this struct to build Object. However, From the separation and adding constrains point of view. The Application should not know about the interface of Object class. because it is the implementation details of graphics, which application should not care.</h3>
+<h3>Well, then maybe we should define these structs in graphics.h file, which would work with some careful forward declarations. The forward declarations could be needed since the object class is part of the graphics application, which is used by graphics.CPP. However, It is kind of wired for lower-level implementation to know the public interfaces of the system. Well, it is even weirder to have two .cpp files each includes the other's .h file.&nbsp; Hence, maybe there should be separated .h files that contain those structs.&nbsp; Or, we could have the graphics.h acts as only the interface which gives all its jobs to another class which implements the highest level of abstraction of graphics applications.</h3>
+<h3>Haha, That is how I implemented the graphics system. Several advantages exist in having this class instead of having the highest level of graphics implemented directly in graphics.CPP. Firstly, the code could be more clear, since you can have all functions and variables declared in .h file. The other advantages would be it might be easier to change the implementations of graphics. Besides, you could instantiate the class, which might not be important here. There might be other advantages that I could not think of right now.</h3>
+<h3>Oh, Besides, I wonder what is the advantages of having static variables that having those variables as member variables and use singleton implementation?</h3>
+<a href="Combined_win32.zip">RedBackGround_win32.zip</a>
+<p></p>
+<a href="Combined_x64.zip">RedBackGround_x64</a>
+</body>
