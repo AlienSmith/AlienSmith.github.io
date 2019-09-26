@@ -23,7 +23,22 @@
 <p>&nbsp;</p>
 <p><img src="A5P6.png" alt="4" width="800" height="300"></p>
 <p>&nbsp;</p>
-<h3><h3> About the build, press space to see the triangle, Use arrow key to move the camera and use "Home" "Delete" "END" "PGDN" To move the object around</h3>
+<h2> Some Thoughts</h2>
+<h3> There are several thing I think wold be interesting to talk about.</h3>
+<h3> Firstly, I have the renderable object store pointers to effects geoemtry and ridiged body state. </h3>
+<h3> However, The RenderObject is acting like a Observer, instead of an owner to those assets. </h3>
+<h3> Those assets are store in some other place of in My_Game instance, which is resposible for all logic of game </h3>
+<h3> The RenderAbleObject gain access to those assets will not be reference counted, Cause it is not neccessary as long as My_Game run in a sequential manner Advantages would be you could change </h3>
+<h3> The RenderAbleOjbect by pointing those pointers to other assects, and different GameObject, not neccessarly renderableObject could share the same assets</h3>
+<h3> Talking about assets, what should be considered as assets? I think assets are those resources shared by multiple threads,which have to be or contain some kind of reference or pointers, and </h3>
+<h3>have to be reference counted. Things passing by value do not need to be reference counted, such as Backgorund Clear Color, and data used to derive other data do not need to be referecne counted,</h3>
+<h3>Such as infomation of the camera.Hence they are not assets</h3>
+<h3>We used extrapolation to make the objects and camera moves smooth, even when the movment system in run at 15 fram per second</h3>
+<h3>Since the extrapolation is calculated everytime before submite a rendering frame, the outcome looks like the movment system is running as fast as rendering</h3>
+<h3> However with our current simple volocity based movement you can easily see the objects flash back when you stop. The idea is if you change the behavious in between two frame.</h3>
+<h3>The extrapolation would be totally wrong. Letting the player controls acceleration could help with the problem</h3>
+<h2>About the build</h2>
+<h3>press space to see the triangle, Use arrow key to move the camera and use "Home" "Delete" "END" "PGDN" To move the object around</h3>
 <a href="MovingSqure_win32.zip">MovingSqure_win32.zip</a>
 <p></p>
 <a href="MoveingSqure_x64.zip">MoveingSqure_x64.zip</a>
