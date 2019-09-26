@@ -1,31 +1,30 @@
 
 <!-- saved from url=(0059)file:///C:/Users/HP/Desktop/Pictures%20Temp/Assingmen2.html -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head><body><h1 style="text-align: left;">Assignment4</h1>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head><body><h1 style="text-align: left;">Assignment5</h1>
 <p>&nbsp;</p>
-<h3>BlueBackGround with white square</h3>
-<p><img src="A4P1.png" alt="Trulli" width="800" height="800"></p>
-<p><strong>BlueBackGround with white square and white triangle</strong></p>
+<h3>Squre in the center</h3>
+<p><img src="A5P1.png" alt="Trulli" width="800" height="800"></p>
+<p><strong>Squre move to left</strong></p>
 <p>&nbsp;</p>
-<p><img src="A4P2.png" alt="1" width="800" height="800"></p>
-<p><strong>BlueBackGround with green square and white triangle</strong></p>
+<p><img src="A5P2.png" alt="1" width="800" height="800"></p>
+<p><strong>Replace Squre with Triangle</strong></p>
 <p>&nbsp;</p>
-<p><img src="A4P3.png" alt="2" width="800" height="800"></p>
+<p><img src="A5P3.png" alt="2" width="800" height="800"></p>
 <h3>The User needs to provide data to initialize effects and geometry.</h3>
 <p>&nbsp;</p>
-<p><strong>Code Initalize Effect</strong></p>
+<p><strong>Code define A RenderAbleObject</strong></p>
 <p>&nbsp;</p>
-<p><img src="A4P5.png" alt="3" width="800" height="600"></p>
-<h3>Then the user could submit those infomation to graphics to draw</h3>
-<p><strong>Submit data based on conditions</strong></p>
+<p><img src="A5P4.png" alt="3" width="800" height="400"></p>
+<p><strong>Interfaces to submit render data The Draw call info is the transformation matrix for the object to transform from local space to world space</strong></p>
 <p>&nbsp;</p>
-<p><img src="A4P4.png" alt="4" width="800" height="300"></p>
-<h3>Here is the struct in the graphics system that specifies datas needed for render a frame, It has size of 232 on x64 system and 186 on win32, Cause pointer takes 4 bytes on win32 and 8 bytes on x64. We used a two layers buffer system, which means we 
-will have an extra data needed for render a frame struct during runtime. Hence, the total memeory used for graphics will be 464 bytes for x64, and 372 bytes for win32. </h3>
+<p><img src="A5P5.png" alt="4" width="800" height="300"></p>
+<h3>The data needed to render a frame takes 296 bytes on x64 system and 260 bytes on x86 system</h3>
+<h3>It has only one drawcall buffer cause we are currently doing one draw call per frame</h3>
 <p>&nbsp;</p>
-<p><img src="A4P6.png" alt="4" width="800" height="300"></p>
+<p><img src="A5P6.png" alt="4" width="800" height="300"></p>
 <p>&nbsp;</p>
-<h3>Finally, the object takes 20 on win32 and 32 on x64, the effect takes 20 on win32 and 16 on x64,which is wired cause it has size of </h3>\<h3> About the build, press space to see the triangle, press enter to see square changes color</h3>
-<a href="Controlled_win32.zip">Controlled_win32.zip</a>
+<h3><h3> About the build, press space to see the triangle, Use arrow key to move the camera and use "Home" "Delete" "END" "PGDN" To move the object around</h3>
+<a href="MovingSqure_win32.zip">MovingSqure_win32.zip</a>
 <p></p>
-<a href="Controlled_x64.zip">Controlled_x64.zip</a>
+<a href="MoveingSqure_x64.zip">MoveingSqure_x64.zip</a>
 </body>
