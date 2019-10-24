@@ -1,0 +1,19 @@
+
+<!-- saved from url=(0059)file:///C:/Users/HP/Desktop/Pictures%20Temp/Assingmen2.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head><body><h1 style="text-align: left;">Assignment8</h1>
+<p>&nbsp;</p>
+<h3>Squre in the center</h3>
+<p><img src="A8P1.png" alt="Trulli" width="600" height="600"></p>
+<p><strong>We Generate a binary for geometries using the lua files generated from Maya.</strong></p>
+<p><strong>Here is a binary files use in this project describing a cube</strong></p>
+<p><img src="A8P2.png" alt="Trulli" width="600" height="600"></p>
+<p><strong>geometry datas are stored in the following order, vertex count(before blue bar), index count(between blue and red bars), vertex data(between red and green bars), index data(after green bar to the end of the file).</strong></p>
+<p><strong>the binary files generated for different plateform should be different, cause d3d11 and opengl has different winding orders. One purpose of having binary files is to do less work during runtime. Hence geoemtry files should have different winding order for opengl and d3d11</strong></p>
+<p><img src="A8P3.png" alt="Trulli" width="400" height="400"></p>
+<p><strong>Codes to extract those data from binary files</strong></p>
+<p><strong>The other advantage of using binary files is binary files would be smaller(Hence load faster) that the corresponding human-readable files, For example A sphere of 1560 vertices would have a human-readable file of 56kb while the binary file of it is 23kb,The human-readable file takes 0.018051 seconds to load,The binaryfiles takes 0.0008 seconds to load. </strong></p>
+<h3>press space to see the Sphere, Use arrow key to move the camera and use "Home" "Delete" "END" "PGDN" To move the object around</h3>
+<a href="Flashy_Cube_win32.zip">Flashy_Cube_win32.zip</a>
+<p></p>
+<a href="Flashy_Cube_x64.zip">Flashy_Cube_x64.zip</a>
+</body>
