@@ -1,0 +1,23 @@
+
+<!-- saved from url=(0059)file:///C:/Users/HP/Desktop/Pictures%20Temp/Assingmen2.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head><body><h1 style="text-align: left;">Assignment9</h1>
+<p>&nbsp;</p>
+<p><img src="A8P1.png" alt="Trulli" width="600" height="600"></p>
+<p><strong>We Generate a binary for effects using the lua files. The human-readable file contain the path the the shaders in source directory, while the binary files contain the path of shaders in runtime directory.</strong></p>
+<p><strong>Here is a human-readble effect file use in this project</strong></p>
+<p><img src="A9P1.png" alt="Trulli" width="400" height="400"></p>
+<p><strong>Path of the vertex shaders and fragment shaders are stored.</strong></p>
+<p><strong>Here is the binary files for the same effect</strong></p>
+<p><img src="A9P2.png" alt="Trulli" width="400" height="400"></p>
+<p><strong>Notice the Wired NUL here is the character '\0' which indicates the end of a string. notice '\0' is different from '\n' and strlen function, which used for getting the lence of C string(char* or const char*). 
+detects the first one. If you store the pathes like this, the end of the first string will be start of the next. Hence, you could easily get the offset of the start address of the second string using the length of the first string.
+Notice I added "data/" in the binary file. Hence I do not need to add it during rumtime. Which could save a little time(string manipulations take times). Besides, dynamically change assets location during runtime does
+not make sence. Because, we used a seperate assets building system which will not support it anyway. </strong></p>
+<p><strong>Here is the How the runtime application extract the shader pathes</strong></p>
+<p><img src="A9P3.png" alt="Trulli" width="800" height="400"></p>
+<p><strong>Notice you need that +1 for the second string cause '\0' takes 1 bytes, and since we are working with char*(char have sizeof 1 byte) that +1 means migrate the pointer toward the higher address in memory by 1 byte.</strong></p>
+<p></p>
+<a href="Assignment9_win32.zip">Assignment9_win32.zip</a>
+<p></p>
+<a href="Assignment9_x64.zip">Assignment9_x64.zip</a>
+</body>
